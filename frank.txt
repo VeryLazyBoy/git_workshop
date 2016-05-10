@@ -1,0 +1,17 @@
+git init
+	Initialized empty Git repository
+git add
+	------
+git commit
+	----
+git log
+
+git --oneline
+
+git status
+
+git diff
+
+git clone + github reposity url
+flow of git
+stage commit change
