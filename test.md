@@ -13,13 +13,13 @@ if it is impossible to make a ring with given arguments //Max(leftS, leftE, left
 if start is S
     if leftS is 0 //there should at least be one S
         return 0;
-    if s[leftS][leftE][leftL] has been memorized //s[leftS][leftE][leftL] means the total ways of arrangement 
-                                                 //given S as the first galaxy, leftS number of S, 
-                                                 //leftE number of E and leftL number of L;
+    if s[leftS][leftE][leftL] has been memorized //s[leftS][leftE][leftL] means the total ways  
+                                                 //of arrangement given S as the first galaxy, 
+                                                 //leftS number of S, leftE number of E and leftL number of L;
         return the memorized result;
     if leftE and leftL are both 0
-        startSEndS[leftS][leftE][leftL] = 1; //startSEndS[leftS][leftE][leftL] means the total ways of arrangement 
-                                             //given S as both the first and the last galaxy, 
+        startSEndS[leftS][leftE][leftL] = 1; //startSEndS[leftS][leftE][leftL] means the total ways 
+                                             //of arrangement given S as both the first and the last galaxy, 
                                              //leftS number of S, leftE number of E and leftL number of L;
         return 1;
 
@@ -111,8 +111,9 @@ if for n > 1 galaxies, the algorithm computes the result correctly:
             computeRingArrangement("E", numberS, numberE, numberL) +
             computeRingArrangement("L", numberS, numberE, numberL);
 
-        ∵ computeRingArrangement("S", numberS, numberE, numberL) = computeRingArrangement("E", numberS - 1, numberE, numberL)
-                + computeRingArrangement("L", numberS - 1, numberE, numberL)
+        ∵ computeRingArrangement("S", numberS, numberE, numberL) = 
+            computeRingArrangement("E", numberS - 1, numberE, numberL)
+            + computeRingArrangement("L", numberS - 1, numberE, numberL)
         ∵ numberS + numberE + numberL - 1 = n,
 
         ∴ computeRingArrangement("S", numberS, numberE, numberL) gives the correct result;
@@ -121,13 +122,19 @@ if for n > 1 galaxies, the algorithm computes the result correctly:
 
         Hence, M is computed correctly and the algorithm will terminate.
 
-        ∵ N = startSEndS[numberS][numberE][numberL] + startEEndE[numberS][numberE][numberL] + startLEndL[numberS][numberE][numberL];
-        ∵ for startSEndS[numberS][numberE][numberL], it is computed inside computeRingArrangement("S", numberS, numberE, numberL),
-        with startSEndS[numberS][numberE][numberL] = startEEndS[numberS - 1][numberE][numberL] + startLEndS[numberS - 1][numberE][numberL]
+        ∵ N = startSEndS[numberS][numberE][numberL] 
+            + startEEndE[numberS][numberE][numberL] 
+            + startLEndL[numberS][numberE][numberL];
+        ∵ for startSEndS[numberS][numberE][numberL], 
+        it is computed inside computeRingArrangement("S", numberS, numberE, numberL),
+        with startSEndS[numberS][numberE][numberL] = 
+            startEEndS[numberS - 1][numberE][numberL] 
+            + startLEndS[numberS - 1][numberE][numberL]
         ∵ numberS + numberE + numberL - 1 = n
         
         ∴ the startSEndS[numberS][numberE][numberL] is computed correctly.
-        ∴ similarly, startEEndE[numberS][numberE][numberL] and startLEndL[numberS][numberE][numberL] are also correct.
+        ∴ similarly, startEEndE[numberS][numberE][numberL] 
+        and startLEndL[numberS][numberE][numberL] are also correct.
 
         Hence, N is correctly computed.
 
