@@ -14,11 +14,13 @@ if start is S
     if leftS is 0 //there should at least be one S
         return 0;
     if s[leftS][leftE][leftL] has been memorized //s[leftS][leftE][leftL] means the total ways of arrangement 
-                                                 //given S as the first galaxy, leftS number of S, leftE number of E and leftL number of L;
+                                                 //given S as the first galaxy, leftS number of S, 
+                                                 //leftE number of E and leftL number of L;
         return the memorized result;
     if leftE and leftL are both 0
-        startSEndS[leftS][leftE][leftL] = 1;//startSEndS[leftS][leftE][leftL] means the total ways of arrangement 
-                                            //given S as both the first and the last galaxy, leftS number of S, leftE number of E and leftL number of L;
+        startSEndS[leftS][leftE][leftL] = 1; //startSEndS[leftS][leftE][leftL] means the total ways of arrangement 
+                                             //given S as both the first and the last galaxy, 
+                                             //leftS number of S, leftE number of E and leftL number of L;
         return 1;
 
     set newS as leftS - 1
@@ -39,7 +41,8 @@ if start is S
     //s[leftS][leftL][leftE] = s[leftS][leftE][leftL];    
     //startSEndL[leftS][leftL][leftE] = startSEndE[leftS][leftE][leftL]; 
     //startSEndE[leftS][leftL][leftE] = startSEndL[leftS][leftE][leftL].
-    //similarly, e[leftE][leftS][leftL], e[leftL][leftS][leftE], l[leftL][leftE][leftS], and l[leftE][leftL][leftS] should also be memorized
+    //similarly, e[leftE][leftS][leftL], e[leftL][leftS][leftE], l[leftL][leftE][leftS], 
+    //and l[leftE][leftL][leftS] should also be memorized
     memorization("S", leftS, leftE, leftL);
 
 else if start is E
@@ -85,7 +88,9 @@ result = computeRingArrangement("S", numberS, numberE, numberL) +
 
 //since we don't allow the start and end to be the same
 if the size of input is more than 1
-    result = result - startSEndS(numberS, numberE, numberL) - startEEndE(numberS, numberE, numberL) - startLEndL(numberS, numberE, numberL);
+    result = result - startSEndS(numberS, numberE, numberL) 
+        - startEEndE(numberS, numberE, numberL) 
+        - startLEndL(numberS, numberE, numberL);
 
 print the result modulo 10^9 with a newline;
 ```
@@ -111,7 +116,8 @@ if for n > 1 galaxies, the algorithm computes the result correctly:
         ∵ numberS + numberE + numberL - 1 = n,
 
         ∴ computeRingArrangement("S", numberS, numberE, numberL) gives the correct result;
-        ∴ Similarly, computeRingArrangement("E", numberS, numberE, numberL) and computeRingArrangement("L", numberS, numberE, numberL) also give the right result.
+        ∴ Similarly, computeRingArrangement("E", numberS, numberE, numberL) and 
+        computeRingArrangement("L", numberS, numberE, numberL) also give the right result.
 
         Hence, M is computed correctly and the algorithm will terminate.
 
