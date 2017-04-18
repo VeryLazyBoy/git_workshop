@@ -1,7 +1,7 @@
-**Liu Ziyang**
+**Liu Ziyang**<br>
 **A0148037E**
 
-#### Description
+### Description
 ---
 Use top down dynamic programming with recursion to solve this problem. In the meantime, save the result of overlapping sub problems. Here is the pseudo-code:
 ```Java
@@ -94,7 +94,7 @@ if the size of input is more than 1
 
 print the result modulo 10^9 with a newline;
 ```
-#### Correctness
+### Correctness
 ---
 The algorithm described above firstly computed the ways of arrangement **M**, (*assuming galaxies are put in a list first*), then find the number of ways **N** with start and end being the same. Clearly, **M** - **N** is the final result.
 
@@ -141,7 +141,7 @@ if for n > 1 galaxies, the algorithm computes the result correctly:
         Hence, for n + 1 galaxies, the algorithm also terminates and computes the correct result.
 Hence, the algorithm is correct.
 ```
-#### Complexity
+### Complexity
 ---
 + Time
 
